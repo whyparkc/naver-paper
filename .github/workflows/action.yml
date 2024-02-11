@@ -23,7 +23,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run
       run: |
-        USERNAME=$USERNAME1 PASSWORD=PASSWORD1 SENDSLACK=True python run_new.py
+        USERNAME=$USERNAME1 PASSWORD=PASSWORD1 SENDSLACK=False python run_new.py
         USERNAME=$USERNAME2 PASSWORD=PASSWORD2 SENDSLACK=True python run_new.py
       env:
         USERNAME1: ${{ secrets.ID1 }} # secret에 저장된 내용을 불러옴
