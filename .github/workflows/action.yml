@@ -23,8 +23,11 @@ jobs:
         pip install -r requirements.txt
     - name: Run
       run: |
-        SENDSLACK=True python run_new.py
+        USERNAME=$USERNAME1 PASSWORD=PASSWORD1 SENDSLACK=True python run_new.py
+        USERNAME=$USERNAME2 PASSWORD=PASSWORD2 SENDSLACK=True python run_new.py
       env:
-        USERNAME: ${{ secrets.ID1 }} # secret에 저장된 내용을 불러옴
-        PASSWORD: ${{ secrets.PASSWORD1 }}
+        USERNAME1: ${{ secrets.ID1 }} # secret에 저장된 내용을 불러옴
+        PASSWORD1: ${{ secrets.PASSWORD1 }}
+        USERNAME2: ${{ secrets.ID2 }} # secret에 저장된 내용을 불러옴
+        PASSWORD2: ${{ secrets.PASSWORD2 }}
         SLACKTOKEN: ${{ secrets.SLACKTOKEN }}
