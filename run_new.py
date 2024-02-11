@@ -95,8 +95,8 @@ def sendSlack(message, link, token):
 base_url = "https://www.clien.net/service/board/jirum"
 base_url_ppom = "https://m.ppomppu.co.kr/new/bbs_list.php?id=coupon"
 
-input_id = os.getenv("USERNAME","ID is null")
-input_pw = os.getenv("PASSWORD","PASSWORD is null")
+input_id = os.getenv("NAVERUSERNAME","ID is null")
+input_pw = os.getenv("NAVERPASSWORD","PASSWORD is null")
 send_slack = os.getenv("SENDSLACK","SENDSLACK is null")
 slack_token = os.getenv("SLACKTOKEN","SLACKTOKEN is null")
 
