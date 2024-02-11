@@ -23,8 +23,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run
       run: |
-        NAVERUSERNAME=$USERNAME1 NAVERPASSWORD=PASSWORD1 SENDSLACK=False python run_new.py
-        NAVERUSERNAME=$USERNAME2 NAVERPASSWORD=PASSWORD2 SENDSLACK=True python run_new.py
+        NAVERUSERNAME=$USERNAME1 NAVERPASSWORD=$PASSWORD1 SENDSLACK=False python run_new.py
+        NAVERUSERNAME=$USERNAME2 NAVERPASSWORD=$PASSWORD2 SENDSLACK=True python run_new.py
       env:
         USERNAME1: ${{ secrets.ID1 }} # secret에 저장된 내용을 불러옴
         PASSWORD1: ${{ secrets.PASSWORD1 }}
