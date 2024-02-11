@@ -23,11 +23,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run
       run: |
-        mkdir -p ~/.naver
-        echo "[default]" > ~/.naver/credentials
-        echo "username = " $USERNAME >> ~/.naver/credentials
-        echo "password = " $PASSWORD >> ~/.naver/credentials
-        python run_new.py
+        SENDSLACK=True python run_new.py
       env:
-        USERNAME: ${{ secrets.ID }} # secret에 저장된 내용을 불러옴
-        PASSWORD: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.ID1 }} # secret에 저장된 내용을 불러옴
+        PASSWORD: ${{ secrets.PASSWORD1 }}
+        SLACKTOKEN: ${{ secrets.SLACKTOKEN }}
