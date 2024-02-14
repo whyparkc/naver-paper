@@ -136,7 +136,8 @@ else:
     driver.switch_to.window(new_window_handle)
     driver2 = driver
 
-    driver2.save_screenshot("1.png")
+    current_time = datetime.datetime.now()
+    driver2.save_screenshot(current_time + "png")
 
     username = driver2.find_element(By.NAME, 'id')
     pw = driver2.find_element(By.NAME, 'pw')
@@ -147,19 +148,22 @@ else:
     driver2.execute_script("arguments[0].value = arguments[1]", username, input_id)
     time.sleep(1)
 
-    driver2.save_screenshot("2.png")
+    current_time = datetime.datetime.now()
+    driver2.save_screenshot(current_time + "png")
 
     pw.click()
     driver2.execute_script("arguments[0].value = arguments[1]", pw, input_pw)
     time.sleep(1)
 
-    driver2.save_screenshot("3.png")
+    current_time = datetime.datetime.now()
+    driver2.save_screenshot(current_time + "png")
 
     #입력을 완료하면 로그인 버튼 클릭
     driver2.find_element(By.CLASS_NAME, "btn_login").click()
     time.sleep(1)
 
-    driver2.save_screenshot("4.png")
+    current_time = datetime.datetime.now()
+    driver2.save_screenshot(current_time + "png")
     
     for link in campaign_links:
         print(link) # for debugging
