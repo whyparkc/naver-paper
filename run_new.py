@@ -114,13 +114,13 @@ else:
 
     # 새로운 창 생성
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-    driver.get('https://naver.com')
+    driver.get('https://nid.naver.com/nidlogin.login')
 
     # 현재 열려 있는 창 가져오기
     current_window_handle = driver.current_window_handle
 
     # <a href class='MyView-module__link_login___HpHMW'> 일때 해당 링크 클릭
-    driver.find_element(By.XPATH, "//a[@class='MyView-module__link_login___HpHMW']").click()
+    # driver.find_element(By.XPATH, "//a[@class='MyView-module__link_login___HpHMW']").click()
 
     # 새롭게 생성된 탭의 핸들을 찾습니다
     # 만일 새로운 탭이 없을경우 기존 탭을 사용합니다.
