@@ -31,3 +31,9 @@ jobs:
         USERNAME2: ${{ secrets.ID2 }} # secret에 저장된 내용을 불러옴
         PASSWORD2: ${{ secrets.PASSWORD2 }}
         SLACKTOKEN: ${{ secrets.SLACKTOKEN }}
+    - name: Archive screenshots
+      uses: actions/upload-artifact@v4
+      with:
+        name: screenshots
+        path: |
+          *.png      
