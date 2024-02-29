@@ -105,8 +105,8 @@ current_time = datetime.datetime.now()
 campaign_links = find_naver_campaign_links_ppom(input_id, base_url_ppom)
 if(campaign_links == []):
     print("모든 링크 방문")
-    if send_slack == "True":
-        print(sendSlack("모든 링크 방문", " ", slack_token))
+    # if send_slack == "True":
+    #     print(sendSlack("모든 링크 방문", " ", slack_token))
 else: 
     # 크롬 드라이버 옵션 설정
     chrome_options = webdriver.ChromeOptions()
