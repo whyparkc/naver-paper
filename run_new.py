@@ -170,7 +170,7 @@ else:
                     priceString = result.text[start - 3:start]
                     price = "".join(filter(str.isdigit, priceString))
                     
-                    sendSlack("<!channel> 네이버 폐지 줍기 성공 - " + input_id, result.text, slack_token)
+                    sendSlack("네이버 폐지 줍기 성공 - " + input_id, result.text, slack_token)
             
             result.accept()
         except:
