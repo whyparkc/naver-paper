@@ -233,8 +233,11 @@ if __name__ == "__main__":
             args.cd is None and
             args.credential_file is None):
         id = os.getenv("USERNAME")
+        print(id)
         pw = os.getenv("PASSWORD")
+        print(pw)
         cd_env = os.getenv("CREDENTIALENV", None)
+        print(cd_env)
         if(pw is None and pw is None and cd_env is None):
             print('not setting USERNAME / PASSWORD')
             exit()
