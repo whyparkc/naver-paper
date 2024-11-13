@@ -232,12 +232,9 @@ if __name__ == "__main__":
             args.pw is None and
             args.cd is None and
             args.credential_file is None):
-        id = os.getenv("USERNAME")
-        print("id: %s"%id)
+        id = os.getenv("USERNAME")        
         pw = os.getenv("PASSWORD")
-        print("pw: %s"%pw)
         cd_env = os.getenv("CREDENTIALENV", None)
-        print("cd_env: %s"%cd_env)
         if(pw is None and pw is None and cd_env is None):
             print('not setting USERNAME / PASSWORD')
             exit()
@@ -268,12 +265,15 @@ if __name__ == "__main__":
 
     campaign_links = grep_campaign_links()
     for idx, account in enumerate(cd_obj):
+        print("idx: %s"%idx)
+        print("account: %s"%account)
         id = account.get("id")
         pw = account.get("pw")
         ua = account.get("ua")
         mobile_device = account.get("mobile_device")
-
+    
         print(f"\r\n>>> {idx+1}번째 계정")
+        print("id: %s"%id)
 
         if id is None:
             print("ID not found!")
