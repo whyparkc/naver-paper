@@ -8,6 +8,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 
 import naver_paper_clien as clien
@@ -76,28 +77,15 @@ def init(id, pwd, ua, mobile_device, headless, newsave):
     input_id = id
     input_pw = pwd
 
-    # ID input 클릭
+    # ID 입력
     username.click()
-    # js를 사용해서 붙여넣기 발동 <- 왜 일부러 이러냐면 pypyautogui랑 pyperclip를 사용해서 복붙 기능을 했는데 운영체제때문에 안되서 이렇게 한거다.
     driver2.execute_script("arguments[0].value = arguments[1]", username, input_id)
+    username.send_keys(Keys.TAB)
     time.sleep(1)
 
-    pw.click()
+    # 비밀번호 입력
     driver2.execute_script("arguments[0].value = arguments[1]", pw, input_pw)
-    time.sleep(1)
-
-    # Enable Stay Signed in
-    if not driver2.find_element(By.CLASS_NAME, "input_keep").is_selected():
-        driver2.find_element(By.CLASS_NAME, "keep_text").click()
-        time.sleep(1)
-
-    # Enable IP Security
-    if not driver2.find_element(By.CLASS_NAME, "switch_checkbox").is_selected():
-        driver2.find_element(By.CLASS_NAME, "switch_btn").click()
-        time.sleep(1)
-
-    # 입력을 완료하면 로그인 버튼 클릭
-    driver2.find_element(By.CLASS_NAME, "btn_login").click()
+    pw.send_keys(Keys.RETURN)
     time.sleep(1)
 
     # new.save 등록
