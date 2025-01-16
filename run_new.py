@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import time
+import random
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -81,12 +82,12 @@ def init(id, pwd, ua, mobile_device, headless, newsave):
     username.click()
     driver2.execute_script("arguments[0].value = arguments[1]", username, input_id)
     username.send_keys(Keys.TAB)
-    time.sleep(1)
+    time.sleep(random.uniform(1, 5))  # 1~5초 사이 랜덤 대기
 
     # 비밀번호 입력
     driver2.execute_script("arguments[0].value = arguments[1]", pw, input_pw)
     pw.send_keys(Keys.RETURN)
-    time.sleep(1)
+    time.sleep(random.uniform(1, 5))  # 1~5초 사이 랜덤 대기
 
     # new.save 등록
     # new.dontsave 등록 안함
@@ -95,7 +96,7 @@ def init(id, pwd, ua, mobile_device, headless, newsave):
             driver2.find_element(By.ID, "new.save").click()
         else:
             driver2.find_element(By.ID, "new.dontsave").click()
-        time.sleep(1)
+        time.sleep(random.uniform(1, 5))  # 1~5초 사이 랜덤 대기
     except Exception as e:
         # Print warning and go to login page.
         logging.warning("%s: new save or dontsave 오류", e)
