@@ -1,29 +1,29 @@
-name: Naver Paper Python GitHub Actions
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '*/30 * * * *'
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.11"
-        cache: 'pip' # caching pip dependencies
-    - name: Install dependencies
-      run: |
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt-get update
-        sudo apt-get install -y gdebi-core
-        sudo gdebi google-chrome-stable_current_amd64.deb        
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run
-      run: |        
-        python run_new.py -i ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
-      env:
-        USERNAME: ${{ secrets.USERNAME }} # secret에 저장된 내용을 불러옴
-        PASSWORD: ${{ secrets.PASSWORD }}
+# name: Naver Paper Python GitHub Actions
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '*/30 * * * *'
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Set up Python 3.11
+#       uses: actions/setup-python@v3
+#       with:
+#         python-version: "3.11"
+#         cache: 'pip' # caching pip dependencies
+#     - name: Install dependencies
+#       run: |
+#         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#         sudo apt-get update
+#         sudo apt-get install -y gdebi-core
+#         sudo gdebi google-chrome-stable_current_amd64.deb        
+#         python -m pip install --upgrade pip
+#         pip install -r requirements.txt
+#     - name: Run
+#       run: |        
+#         python run_new.py -i ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+#       env:
+#         USERNAME: ${{ secrets.USERNAME }} # secret에 저장된 내용을 불러옴
+#         PASSWORD: ${{ secrets.PASSWORD }}
